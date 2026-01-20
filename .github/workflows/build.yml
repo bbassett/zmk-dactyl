@@ -1,0 +1,59 @@
+name: Build ZMK Firmware
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:stable
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - shield: dactyl_manuform_left
+            board: nice_nano_v2
+          - shield: dactyl_manuform_right
+            board: nice_nano_v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache west modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            modules/
+            tools/
+            zephyr/
+            bootloader/
+            zmk/
+          key: ${{ runner.os }}-west-${{ hashFiles('west.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-west-
+
+      - name: West init
+        run: west init -l .
+
+      - name: West update
+        run: west update
+
+      - name: West Zephyr export
+        run: west zephyr-export
+
+      - name: Build firmware
+        run: west build -s zmk/app -b ${{ matrix.board }} -- -DSHIELD=${{ matrix.shield }} -DZMK_EXTRA_MODULES="$(pwd)"
+
+      - name: Rename firmware
+        run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}-${{ matrix.board }}.uf2
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.shield }}-${{ matrix.board }}
+          path: ${{ matrix.shield }}-${{ matrix.board }}.uf2

@@ -1,0 +1,12 @@
+file_format: "1"
+id: dactyl_manuform
+name: Dactyl Manuform
+type: shield
+url: https://github.com/abstracthat/dactyl-manuform
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - dactyl_manuform_left
+  - dactyl_manuform_right
