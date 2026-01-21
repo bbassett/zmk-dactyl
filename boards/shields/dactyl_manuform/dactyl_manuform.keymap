@@ -16,12 +16,12 @@
             //          3  4  5  tog2                 tog2 6  7  8
             //                   mo1  BKSP            SPC  RET
             bindings = <
-                &kp Q  &kp W    &kp E      &kp R  &kp T                    &kp Y    &kp U  &kp I      &kp O    &kp P
-                &kp A  &kp S    &kp D      &kp F  &kp G                    &kp H    &kp J  &kp K      &kp L    &lt 1 SEMI
-                &kp Z  &kp X    &kp C      &kp V  &kp B                    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                       &kp LEFT &kp RIGHT                                                       &kp UP   &kp DOWN
-                       &lt LCTRL ESC &kp LGUI &kp N5  &tog 2     &tog 2   &kp N6 &kp BSPC   &kp SPC
-                                              &kp DEL &mo 1      &kp SPC  &kp RET
+                &kp Q         &kp W    &kp E      &kp R  &kp T                    &kp Y    &kp U  &kp I      &kp O    &kp P
+                &kp A         &kp S    &kp D      &kp F  &kp G                    &kp H    &kp J  &kp K      &kp L    &lt 1 SEMI
+                &mt LSHIFT Z  &kp X    &kp C      &kp V  &kp B                    &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
+                              &kp LEFT &kp RIGHT                                                       &kp UP   &kp DOWN
+                              &mt LCTRL ESC &kp LGUI &kp N5  &tog 2     &tog 2   &kp N6 &kp BSPC   &kp SPC
+                                                     &kp DEL &mo 1      &kp SPC  &kp RET
             >;
         };
 
