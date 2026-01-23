@@ -16,64 +16,115 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // Left side                              Right side
+            // Layer 0: Base QWERTY
+            // Left side                             Right side
             // -----------------------------------------
-            // Q  W  E  R  T                          Y  U  I  O  P
-            // A  S  D  F  G                          H  J  K  L  ;/L1
-            // Z  X  C  V  B                          N  M  ,  .  /
-            //    1  2                                            9  0
-            //          3  4  5  tog2                 tog2 6  7  8
-            //                   mo1  BKSP            SPC  RET
+            // Q     W     E     R     T             Y     U     I     O     P
+            // A/L1  S/L2  D/L3  F/L4  G             H     J     K     L     RET/L5
+            // Z/SFT X     C     V     B             N     M     ,     .     //SFT
+            //       LEFT  RGHT                                  ;     '
+            //             CTL/ESC GUI ALT   1       1     UP    BSPC  SPC
+            //                           DEL 1       1     DOWN
             bindings = <
-                &kp Q         &kp W    &kp E      &kp R  &kp T                            &kp Y    &kp U  &kp I      &kp O    &kp P
-                &lt 1 A       &kp S    &kp D      &kp F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
-                &mt LSHIFT Z  &kp X    &kp C      &kp V  &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
+                &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U  &kp I      &kp O    &kp P
+                &lt 1 A       &lt 2 S  &lt 3 D  &lt 4 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 5 RET
+                &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
                               &kp LEFT &kp RIGHT                                                          &kp SEMI   &kp APOS
-                              &mt LCTRL ESC &kp LGUI &mt LALT GRAVE  &mo 2        &kp UP    &kp N1  &lt 1 BSPC   &lt 2 SPC
-                                                     &lt 1 DEL       &kp N1       &kp DOWN  &kp RET
+                              &mt LCTRL ESC &kp LGUI &mt LALT  &kp N1        &kp N1    &kp UP  &kp BSPC   &kp SPC
+                                                     &kp DEL   &kp N1        &kp N1    &kp DOWN
             >;
         };
 
         num_sym_layer {
-            // Left: programming symbols             Right: numpad
+            // Layer 1: Numbers and Symbols (hold A)
+            // Left: symbols                         Right: numpad
             // -----------------------------------------
-            // `  ~  !  @  #                          _  /  *  -  BKSP
-            // {  }  [  ]  |                          _  7  8  9  +
-            // <  >  (  )  \                          _  4  5  6  =
-            //    &  $                                            3  ENT
-            //          %  ^  =  _                    _  1  2  +
-            //                   _  _                 0  .
+            // S-TAB TAB   {     }     |             =     7     8     9     *
+            // $     `     (     )     \             +     4     5     6     /
+            // %     ~     [     ]     `             -     1     2     3     *
+            //       _     _                                     0     /
+            //             %     ^     =     _       _     _     _     _
+            //                         _     _       _     _
             bindings = <
-                &kp LS(TAB) &kp TAB  &kp LBRC  &kp RBRC  &kp PIPE                &kp EQUAL &kp N7   &kp N8   &kp N9    &kp STAR
-                &kp DOLLAR  &trans   &kp LPAR  &kp RPAR  &kp BSLH                &kp PLUS  &kp N4   &kp N5   &kp N6    &kp FSLH
-                &kp PERCENT &trans   &kp LBKT  &kp RBKT  &kp GRAVE               &kp MINUS &kp N1   &kp N2   &kp N3    &kp STAR
-                            &trans   &trans                                                               &kp N0    &kp FSLH
-                                              &kp PRCNT &kp CARET &kp EQUAL &trans     &trans  &trans    &trans     &trans
-                                                                  &trans &trans        &kp N0  &trans
+                &kp LS(TAB)   &kp TAB    &kp LBRC  &kp RBRC  &kp PIPE                         &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp STAR
+                &kp DOLLAR    &GRAVE     &kp LPAR  &kp RPAR  &kp BSLH                         &kp PLUS   &kp N4  &kp N5  &kp N6  &kp FSLH
+                &kp PERCENT   &TILDE     &kp LBKT  &kp RBKT  &kp GRAVE                        &kp MINUS  &kp N1  &kp N2  &kp N3  &kp STAR
+                              &trans     &trans                                                                 &kp N0  &kp FSLH
+                              &kp PRCNT  &kp CARET  &kp EQUAL  &trans           &trans      &trans     &trans  &trans
+                                                              &trans  &trans    &trans      &trans
             >;
         };
 
-        mouse_media_layer {
-            // Left: mouse control                   Right: media/brightness
+        sym_layer {
+            // Layer 2: Shifted Symbols (hold S)
+            // Left: transparent                     Right: shifted number symbols
             // -----------------------------------------
-            // _    LCLK  UP   RCLK  _               _     _       _       _      _
-            // _    LEFT  DOWN RGHT  _               PREV  VOL_DN  VOL_UP  NEXT   _
-            // _    _     MCLK _     _               _     BRI_DN  BRI_UP  _      _
-            //      _     _                                               _      _
-            //            _    _     _    TOG        TOG   MUTE    PP     _
-            //                       _    _          _     _
+            // _     _     _     _     _             =     &     *     (     *
+            // _     _     _     _     _             +     $     %     ^     /
+            // _     _     _     _     _             -     !     @     #     *
+            //       _     _                                     )     /
+            //             _     _     _     _       _     _     _     _
+            //                         _     _       _     _
             bindings = <
-                &trans    &mkp LCLK        &mmv MOVE_UP   &mkp RCLK         &trans                &trans      &trans        &trans        &trans      &trans
-                &trans    &mmv MOVE_LEFT   &mmv MOVE_DOWN &mmv MOVE_RIGHT   &trans                &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &trans
-                &trans    &trans           &mkp MCLK      &trans            &trans                &trans      &kp C_BRI_DN  &kp C_BRI_UP  &trans      &trans
-                          &trans           &trans                                                                           &trans        &trans
-                                                          &trans &trans &trans &tog 2             &tog 2      &kp C_MUTE    &kp C_PP      &trans
-                                                                        &trans &trans             &trans      &trans
+                &trans  &trans  &trans  &trans  &trans                              &kp EQUAL &kp LS(N7)   &kp LS(N8)   &kp LS(N9)    &kp STAR
+                &trans  &trans  &trans  &trans  &trans                              &kp PLUS  &kp LS(N4)   &kp LS(N5)   &kp LS(N6)    &kp FSLH
+                &trans  &trans  &trans  &trans  &trans                              &kp MINUS &kp LS(N1)   &kp LS(N2)   &kp LS(N3)    &kp STAR
+                        &trans  &trans                                                        &kp LS(N0)   &kp FSLH
+                                &trans  &trans  &trans &trans     &trans  &trans    &trans    &trans
+                                                &trans &trans     &trans  &trans
+            >;
+        };
+
+        mouse_layer {
+            // Layer 3: Mouse Control (hold D)
+            // Left: transparent                     Right: mouse movement and clicks
+            // -----------------------------------------
+            // _     _     _     _     _             _     LCLK  UP    RCLK  _
+            // _     _     _     _     _             _     LEFT  DOWN  RGHT  _
+            // _     _     _     _     _             _     _     MCLK  _     _
+            //       _     _                                     _     _
+            //             _     _     _     _       _     _     _     _
+            //                         _     _       _     _
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans                &trans          &mkp LCLK        &mmv MOVE_UP    &mkp RCLK         &trans
+                &trans  &trans  &trans  &trans  &trans                &trans          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &trans
+                &trans  &trans  &trans  &trans  &trans                &trans          &trans           &mkp MCLK       &trans            &trans
+                        &trans  &trans                                                                 &trans          &trans
+                                        &trans  &trans  &trans &trans     &trans      &trans           &trans          &trans
+                                                        &trans &trans     &trans      &trans
+            >;
+        };
+
+        media_layer {
+            // Layer 4: Media Controls (hold F)
+            // Left: transparent                     Right: media and brightness
+            // -----------------------------------------
+            // _     _     _     _     _             _     PREV  PL/PA NEXT  _
+            // _     _     _     _     _             _     MUTE  VOL-  VOL+  _
+            // _     _     _     _     _             _     _     BRI-  BRI+  _
+            //       _     _                                     _     _
+            //             _     _     _     _       _     _     _     _
+            //                         _     _       _     _
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_PREV     &kp C_PP      &kp C_NEXT    &trans
+                &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_VOL_MUTE &kp C_VOL_DN  &kp C_VOL_UP  &trans
+                &trans  &trans  &trans  &trans  &trans                            &trans   &trans         &kp C_BRI_DN  &kp C_BRI_UP  &trans
+                        &trans  &trans                                                                    &trans        &trans
+                                        &trans  &trans  &trans &trans     &trans  &trans   &trans         &trans
+                                                        &trans &trans     &trans  &trans
             >;
         };
 
         hyper_layer {
-            // Hyper (Cmd+Ctrl+Alt) + letter for all letter keys
+            // Layer 5: Hyper Keys (hold RET)
+            // Hyper = Cmd+Ctrl+Alt modifier on all letter keys
+            // -----------------------------------------
+            // H-Q   H-W   H-E   H-R   H-T           H-Y   H-U   H-I   H-O   H-P
+            // H-A   H-S   H-D   H-F   H-G           H-H   H-J   H-K   H-L   _
+            // H-Z   H-X   H-C   H-V   H-B           H-N   H-M   _     _     _
+            //       _     _                                     _     _
+            //             _     _     _     _       _     _     _     _
+            //                         _     _       _     _
             bindings = <
                 &kp LC(LA(LG(Q)))  &kp LC(LA(LG(W)))  &kp LC(LA(LG(E)))  &kp LC(LA(LG(R)))  &kp LC(LA(LG(T)))      &kp LC(LA(LG(Y)))  &kp LC(LA(LG(U)))  &kp LC(LA(LG(I)))  &kp LC(LA(LG(O)))  &kp LC(LA(LG(P)))
                 &kp LC(LA(LG(A)))  &kp LC(LA(LG(S)))  &kp LC(LA(LG(D)))  &kp LC(LA(LG(F)))  &kp LC(LA(LG(G)))      &kp LC(LA(LG(H)))  &kp LC(LA(LG(J)))  &kp LC(LA(LG(K)))  &kp LC(LA(LG(L)))  &trans
