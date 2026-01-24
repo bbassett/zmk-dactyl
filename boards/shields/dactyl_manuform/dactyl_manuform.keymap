@@ -43,14 +43,14 @@
             // $     `     (     )     \             +     4     5     6     /
             // %     ~     [     ]     `             -     1     2     3     *
             //       _     _                                     0     /
-            //             %     ^     =     _       _     _     _     _
+            //             _     ^     =     _       _     _     _     _
             //                         _     _       _     _
             bindings = <
                 &kp LS(TAB)   &kp TAB    &kp LBRC  &kp RBRC  &kp PIPE                         &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp STAR
-                &kp DOLLAR    &GRAVE     &kp LPAR  &kp RPAR  &kp BSLH                         &kp PLUS   &kp N4  &kp N5  &kp N6  &kp FSLH
-                &kp PERCENT   &TILDE     &kp LBKT  &kp RBKT  &kp GRAVE                        &kp MINUS  &kp N1  &kp N2  &kp N3  &kp STAR
-                              &trans     &trans                                                                 &kp N0  &kp FSLH
-                              &kp PRCNT  &kp CARET  &kp EQUAL  &trans           &trans      &trans     &trans  &trans
+                &kp DOLLAR    &kp GRAVE  &kp LPAR  &kp RPAR  &kp BSLH                         &kp PLUS   &kp N4  &kp N5  &kp N6  &kp FSLH
+                &kp PERCENT   &kp TILDE  &kp LBKT  &kp RBKT  &kp GRAVE                        &kp MINUS  &kp N1  &kp N2  &kp N3  &kp STAR
+                              &kp LG(LS(TAB))     &kp LG(TAB)                                                                 &kp N0  &kp FSLH
+                              &trans     &trans  &trans  &trans           &trans      &trans     &trans  &trans
                                                               &trans  &trans    &trans      &trans
             >;
         };
@@ -123,13 +123,13 @@
             // H-A   H-S   H-D   H-F   H-G           H-H   H-J   H-K   H-L   _
             // H-Z   H-X   H-C   H-V   H-B           H-N   H-M   _     _     _
             //       _     _                                     _     _
-            //             _     _     _     _       _     _     _     _
+            //             G-S-~ G-~   _     _       _     _     _     _
             //                         _     _       _     _
             bindings = <
                 &kp LC(LA(LG(Q)))  &kp LC(LA(LG(W)))  &kp LC(LA(LG(E)))  &kp LC(LA(LG(R)))  &kp LC(LA(LG(T)))      &kp LC(LA(LG(Y)))  &kp LC(LA(LG(U)))  &kp LC(LA(LG(I)))  &kp LC(LA(LG(O)))  &kp LC(LA(LG(P)))
                 &kp LC(LA(LG(A)))  &kp LC(LA(LG(S)))  &kp LC(LA(LG(D)))  &kp LC(LA(LG(F)))  &kp LC(LA(LG(G)))      &kp LC(LA(LG(H)))  &kp LC(LA(LG(J)))  &kp LC(LA(LG(K)))  &kp LC(LA(LG(L)))  &trans
                 &kp LC(LA(LG(Z)))  &kp LC(LA(LG(X)))  &kp LC(LA(LG(C)))  &kp LC(LA(LG(V)))  &kp LC(LA(LG(B)))      &kp LC(LA(LG(N)))  &kp LC(LA(LG(M)))  &trans             &trans             &trans
-                                   &trans             &trans                                                                                            &trans             &trans
+                                   &kp LG(LS(GRAVE))  &kp LG(GRAVE)                                                                                      &trans             &trans
                                                                          &trans &trans &trans &trans              &trans             &trans             &trans             &trans
                                                                                         &trans &trans              &trans             &trans
             >;
