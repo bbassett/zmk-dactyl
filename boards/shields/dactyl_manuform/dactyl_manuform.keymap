@@ -17,14 +17,13 @@
 
         default_layer {
             // Layer 0: Base QWERTY
-            // Left side                             Right side
             // -----------------------------------------
-            // Q     W     E     R     T             Y     U     I     O     P
-            // A/L1  S/L2  D/L3  F/L4  G             H     J     K     L     RET/L1
-            // Z/SFT X     C     V     B             N     M     ,     .     //SFT
-            //       LEFT  RGHT                                  ;     '
-            //             CTL/ESC GUI ALT   1       1     UP    BSPC  SPC
-            //                           DEL 1       1     DOWN
+            // Q       W       E       R       T             Y       U       I       O       P
+            // A/L1    S/L2    D       F/L3    G             H       J       K       L       RET/L1
+            // Z/LSft  X       C       V       B             N       M       ,       .       //RSft
+            //         LEFT    RIGHT                                         ;       '
+            //                 Ctl/Esc GUI     ALT     -     UP      -       Bspc/L4 SPC
+            //                                 -       -     DOWN    -
             bindings = <
                 &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U  &kp I      &kp O    &kp P
                 &lt 1 A       &lt 2 S  &kp D    &lt 3 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
@@ -33,17 +32,17 @@
                               &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &kp N0  &lt 4 BSPC   &kp SPC
                                                      &kp N0    &kp N0        &kp DOWN  &kp N0
             >;
+        };
 
         num_layer {
-            // Layer 1: Numbers and Symbols (hold A)
-            // Left: symbols                         Right: numpad
+            // Layer 1: Numbers and Symbols (hold A or RET)
             // -----------------------------------------
-            // S-TAB TAB   {     }     |             \     7     8     9     0
-            // $     `     (     )     \             =     4     5     6     /
-            // %     ~     [     ]     `             -     1     2     3     *
-            //       _     _                                     0     /
-            //             _     ^     =     _       _     _     _     _
-            //                         _     _       _     _
+            // _       _       {       }       |             /       7       8       9       0
+            // $       `       (       )       \             *       4       5       6       +
+            // %       ~       [       ]       `             -       1       2       3       =
+            //         _       _                                             0       .
+            //                 _       _       _       _     _       _       DEL     _
+            //                                 _       _     _       _
             bindings = <
                 &trans        &trans     &kp LBRC  &kp RBRC  &kp PIPE                         &kp FSLH   &kp N7  &kp N8  &kp N9  &kp N0
                 &kp DOLLAR    &kp GRAVE  &kp LPAR  &kp RPAR  &kp BSLH                         &kp STAR   &kp N4  &kp N5  &kp N6  &kp PLUS
@@ -55,15 +54,14 @@
         };
 
         shift_num_layer {
-            // Layer 2: Numbers but holding <shift> (hold S)
-            // Left: symbols                         Right: numpad
+            // Layer 2: Shifted Symbols (hold S)
             // -----------------------------------------
-            // S-TAB TAB   {     }     |             \     7     8     9     0
-            // $     `     (     )     \             =     4     5     6     /
-            // %     ~     [     ]     `             -     1     2     3     *
-            //       _     _                                     0     /
-            //             _     ^     =     _       _     _     _     _
-            //                         _     _       _     _
+            // _       _       _       _       _             ?       &       *       (       )
+            // _       _       _       _       _             S-*     $       %       ^       S-+
+            // _       _       _       _       _             _       !       @       #       +
+            //         _       _                                             )       >
+            //                 _       _       _       _     _       _       _       _
+            //                                 _       _     _       _
             bindings = <
                 &trans   &trans  &trans  &trans  &trans                         &kp LS(FSLH)   &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)
                 &trans   &trans  &trans  &trans  &trans                         &kp LS(STAR)   &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(PLUS)
@@ -76,15 +74,14 @@
 
 
         sym1_layer {
-            // Layer 3: Shifted Symbols (hold F)
-            // Left: transparent                     Right: shifted number symbols
+            // Layer 3: Window Switching (hold F)
             // -----------------------------------------
-            // _     _     _     _     _             =     &     *     (     *
-            // _     _     _     _     _             +     $     %     ^     /
-            // _     _     _     _     _             -     !     @     #     *
-            //       _     _                                     )     /
-            //             _     _     _     _       _     _     _     _
-            //                         _     _       _     _
+            // G-S-`   G-`     _       _       _             _       _       _       _       _
+            // G-S-Tab G-Tab   _       _       _             _       _       _       _       _
+            // _       _       _       _       _             _       _       _       _       _
+            //         _       _                                             _       _
+            //                 _       _       _       _     _       _       _       _
+            //                                 _       _     _       _
             bindings = <
                 &kp LG(LS(GRAVE))  &kp LG(GRAVE)  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
                 &kp LG(LS(TAB))  &kp LG(TAB)  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
@@ -96,15 +93,15 @@
         };
 
         btt_layer {
-            // Layer 5: Hyper Keys (hold RET)
-            // Hyper = Cmd+Ctrl+Alt modifier on all letter keys
+            // Layer 4: BTT Triggers (hold BSPC)
+            // Sends C_FUN + letter for BetterTouchTool macros
             // -----------------------------------------
-            // H-Q   H-W   H-E   H-R   H-T           H-Y   H-U   H-I   H-O   H-P
-            // H-A   H-S   H-D   H-F   H-G           H-H   H-J   H-K   H-L   _
-            // H-Z   H-X   H-C   H-V   H-B           H-N   H-M   _     _     _
-            //       _     _                                     _     _
-            //             G-S-~ G-~   _     _       _     _     _     _
-            //                         _     _       _     _
+            // BTT-Q   BTT-W   BTT-E   BTT-R   BTT-T         BTT-Y   BTT-U   BTT-I   BTT-O   BTT-P
+            // BTT-A   BTT-S   BTT-D   BTT-F   BTT-G         BTT-H   BTT-J   BTT-K   BTT-L   _
+            // BTT-Z   BTT-X   BTT-C   BTT-V   BTT-B         BTT-N   BTT-M   _       _       _
+            //         _       _                                             _       _
+            //                 _       _       _       _     _       _       _       _
+            //                                 _       _     _       _
             bindings = <
                 &btt_q  &btt_w  &btt_e  &btt_r  &btt_t        &btt_y  &btt_u  &btt_i  &btt_o  &btt_p
                 &btt_a  &btt_s  &btt_d  &btt_f  &btt_g        &btt_h  &btt_j  &btt_k  &btt_l  &trans
