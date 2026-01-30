@@ -1,7 +1,4 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
-
+#include <behaviors.dtsi> #include <dt-bindings/zmk/keys.h> #include <dt-bindings/zmk/mouse.h>
 / {
     combos {
         compatible = "zmk,combos";
@@ -26,14 +23,14 @@
             //             CTL/ESC GUI ALT   1       1     UP    BSPC  SPC
             //                           DEL 1       1     DOWN
             bindings = <
-                &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U  &kp I      &kp O    &lt 5 P
-                &lt 1 A       &lt 2 S  &lt 3 D  &lt 4 F  &lt 5 G                          &kp H    &kp J  &kp K      &kp L    &lt 1 RET
+                &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U  &kp I      &kp O    &lt CAPS P
+                &kp A         &lt 1 S  &lt 2 D  &lt 3 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
                 &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
                               &kp LEFT &kp RIGHT                                                          &kp SEMI   &kp APOS
                               &mt LCTRL ESC &kp LGUI &kp LALT  &kp N1        &kp N1    &kp UP  &kp BSPC   &kp SPC
-                                                     &kp DEL   &kp N1        &kp N1    &kp DOWN
+                                                     &mo 1     &kp N1        &kp N1    &kp DOWN
             >;
-        };
+
 
         num_sym_layer {
             // Layer 1: Numbers and Symbols (hold A)
@@ -75,46 +72,6 @@
             >;
         };
 
-        mouse_layer {
-            // Layer 3: Mouse Control (hold D)
-            // Left: transparent                     Right: mouse movement and clicks
-            // -----------------------------------------
-            // _     _     _     _     _             _     LCLK  UP    RCLK  _
-            // _     _     _     _     _             _     LEFT  DOWN  RGHT  _
-            // _     _     _     _     _             _     _     MCLK  _     _
-            //       _     _                                     _     _
-            //             _     _     _     _       _     _     _     _
-            //                         _     _       _     _
-            bindings = <
-                &trans  &trans  &trans  &trans  &trans                &trans          &mkp LCLK        &mmv MOVE_UP    &mkp RCLK         &trans
-                &trans  &trans  &trans  &trans  &trans                &trans          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &trans
-                &trans  &trans  &trans  &trans  &trans                &trans          &trans           &mkp MCLK       &trans            &trans
-                        &trans  &trans                                                                 &trans          &trans
-                                        &trans  &trans  &trans &trans     &trans      &trans           &trans          &trans
-                                                        &trans &trans     &trans      &trans
-            >;
-        };
-
-        media_layer {
-            // Layer 4: Media Controls (hold F)
-            // Left: transparent                     Right: media and brightness
-            // -----------------------------------------
-            // _     _     _     _     _             _     PREV  PL/PA NEXT  _
-            // _     _     _     _     _             _     MUTE  VOL-  VOL+  _
-            // _     _     _     _     _             _     _     BRI-  BRI+  _
-            //       _     _                                     _     _
-            //             _     _     _     _       _     _     _     _
-            //                         _     _       _     _
-            bindings = <
-                &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_PREV     &kp C_PP      &kp C_NEXT    &trans
-                &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_MUTE &kp C_VOL_DN  &kp C_VOL_UP  &trans
-                &trans  &trans  &trans  &trans  &trans                            &trans   &trans         &kp C_BRI_DN  &kp C_BRI_UP  &trans
-                        &trans  &trans                                                                    &trans        &trans
-                                        &trans  &trans  &trans &trans     &trans  &trans   &trans         &trans
-                                                        &trans &trans     &trans  &trans
-            >;
-        };
-
         hyper_layer {
             // Layer 5: Hyper Keys (hold RET)
             // Hyper = Cmd+Ctrl+Alt modifier on all letter keys
@@ -134,5 +91,46 @@
                                                                                         &trans &trans              &trans             &trans
             >;
         };
+
+        // mouse_layer {
+        //     // Layer 3: Mouse Control (hold D)
+        //     // Left: transparent                     Right: mouse movement and clicks
+        //     // -----------------------------------------
+        //     // _     _     _     _     _             _     LCLK  UP    RCLK  _
+        //     // _     _     _     _     _             _     LEFT  DOWN  RGHT  _
+        //     // _     _     _     _     _             _     _     MCLK  _     _
+        //     //       _     _                                     _     _
+        //     //             _     _     _     _       _     _     _     _
+        //     //                         _     _       _     _
+        //     bindings = <
+        //         &trans  &trans  &trans  &trans  &trans                &trans          &mkp LCLK        &mmv MOVE_UP    &mkp RCLK         &trans
+        //         &trans  &trans  &trans  &trans  &trans                &trans          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &trans
+        //         &trans  &trans  &trans  &trans  &trans                &trans          &trans           &mkp MCLK       &trans            &trans
+        //                 &trans  &trans                                                                 &trans          &trans
+        //                                 &trans  &trans  &trans &trans     &trans      &trans           &trans          &trans
+        //                                                 &trans &trans     &trans      &trans
+        //     >;
+        // };
+
+        // media_layer {
+        //     // Layer 4: Media Controls (hold F)
+        //     // Left: transparent                     Right: media and brightness
+        //     // -----------------------------------------
+        //     // _     _     _     _     _             _     PREV  PL/PA NEXT  _
+        //     // _     _     _     _     _             _     MUTE  VOL-  VOL+  _
+        //     // _     _     _     _     _             _     _     BRI-  BRI+  _
+        //     //       _     _                                     _     _
+        //     //             _     _     _     _       _     _     _     _
+        //     //                         _     _       _     _
+        //     bindings = <
+        //         &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_PREV     &kp C_PP      &kp C_NEXT    &trans
+        //         &trans  &trans  &trans  &trans  &trans                            &trans   &kp C_MUTE &kp C_VOL_DN  &kp C_VOL_UP  &trans
+        //         &trans  &trans  &trans  &trans  &trans                            &trans   &trans         &kp C_BRI_DN  &kp C_BRI_UP  &trans
+        //                 &trans  &trans                                                                    &trans        &trans
+        //                                 &trans  &trans  &trans &trans     &trans  &trans   &trans         &trans
+        //                                                 &trans &trans     &trans  &trans
+        //     >;
+        // };
+
     };
 };
