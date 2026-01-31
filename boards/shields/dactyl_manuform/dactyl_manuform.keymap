@@ -29,7 +29,7 @@
                 &lt 1 A       &lt 2 S  &kp D    &lt 3 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
                 &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
                               &kp LEFT &kp RIGHT                                                          &kp SEMI   &kp APOS
-                              &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &hyper  &lt 4 BSPC   &kp SPC
+                              &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &kp F4  &lt 4 BSPC   &kp SPC
                                                      &kp N0    &kp N0        &kp DOWN  &kp N0
             >;
         };
@@ -114,14 +114,6 @@
     };
 
     macros {
-        hyper: hyper {
-            compatible = "zmk,behavior-macro";
-            label = "HYPER";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
-                       <&macro_pause_for_release>,
-                       <&macro_release &kp LGUI &kp LCTRL &kp LALT>;
-        };
         btt_a: btt_a {
             compatible = "zmk,behavior-macro";
             label = "BTT_A";
