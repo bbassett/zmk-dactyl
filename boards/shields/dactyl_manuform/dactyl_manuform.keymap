@@ -29,7 +29,7 @@
                 &lt 1 A       &lt 2 S  &kp D    &lt 3 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
                 &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
                               &kp LEFT &kp RIGHT                                                          &kp SEMI   &kp APOS
-                              &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &kp N0  &lt 4 BSPC   &kp SPC
+                              &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &mo GLOBE  &lt 4 BSPC   &kp SPC
                                                      &kp N0    &kp N0        &kp DOWN  &kp N0
             >;
         };
@@ -83,8 +83,8 @@
             //                 _       _       _       _     _       _       _       _
             //                                 _       _     _       _
             bindings = <
-                &kp LG(LS(GRAVE))  &kp LG(GRAVE)  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
-                &kp LG(LS(TAB))  &kp LG(TAB)  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
+                &kp LS(GRAVE)  &kp GRAVE  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
+                &kp LS(TAB)  &kp TAB  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
                 &trans  &trans  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
                         &trans  &trans                                                        &trans    &trans
                                 &trans  &trans  &trans &trans     &trans  &trans    &trans    &trans
