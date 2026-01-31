@@ -94,7 +94,7 @@
 
         btt_layer {
             // Layer 4: BTT Triggers (hold BSPC)
-            // Sends C_FUN + letter for BetterTouchTool macros
+            // Sends GLOBE + letter for BetterTouchTool macros
             // -----------------------------------------
             // BTT-Q   BTT-W   BTT-E   BTT-R   BTT-T         BTT-Y   BTT-U   BTT-I   BTT-O   BTT-P
             // BTT-A   BTT-S   BTT-D   BTT-F   BTT-G         BTT-H   BTT-J   BTT-K   BTT-L   _
@@ -119,7 +119,7 @@
             label = "BTT_A";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp A
             >;
         };
@@ -128,7 +128,7 @@
             label = "BTT_B";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp B
             >;
         };
@@ -137,7 +137,7 @@
             label = "BTT_C";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp C
             >;
         };
@@ -146,7 +146,7 @@
             label = "BTT_D";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp D
             >;
         };
@@ -155,7 +155,7 @@
             label = "BTT_E";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp E
             >;
         };
@@ -164,7 +164,7 @@
             label = "BTT_F";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp F
             >;
         };
@@ -173,7 +173,7 @@
             label = "BTT_G";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp G
             >;
         };
@@ -182,7 +182,7 @@
             label = "BTT_H";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp H
             >;
         };
@@ -191,7 +191,7 @@
             label = "BTT_I";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp I
             >;
         };
@@ -200,7 +200,7 @@
             label = "BTT_J";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp J
             >;
         };
@@ -209,7 +209,7 @@
             label = "BTT_K";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp K
             >;
         };
@@ -218,7 +218,7 @@
             label = "BTT_L";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp L
             >;
         };
@@ -227,7 +227,7 @@
             label = "BTT_M";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp M
             >;
         };
@@ -236,7 +236,7 @@
             label = "BTT_N";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp N
             >;
         };
@@ -245,7 +245,7 @@
             label = "BTT_O";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp O
             >;
         };
@@ -254,7 +254,7 @@
             label = "BTT_P";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp P
             >;
         };
@@ -263,7 +263,7 @@
             label = "BTT_Q";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp Q
             >;
         };
@@ -272,7 +272,7 @@
             label = "BTT_R";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp R
             >;
         };
@@ -281,7 +281,7 @@
             label = "BTT_S";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp S
             >;
         };
@@ -290,7 +290,7 @@
             label = "BTT_T";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp T
             >;
         };
@@ -299,7 +299,7 @@
             label = "BTT_U";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp U
             >;
         };
@@ -308,7 +308,7 @@
             label = "BTT_V";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp V
             >;
         };
@@ -317,7 +317,7 @@
             label = "BTT_W";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp W
             >;
         };
@@ -326,7 +326,7 @@
             label = "BTT_X";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp X
             >;
         };
@@ -335,7 +335,7 @@
             label = "BTT_Y";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp Y
             >;
         };
@@ -344,7 +344,7 @@
             label = "BTT_Z";
             #binding-cells = <0>;
             bindings = <
-                &kp C_FUN
+                &kp GLOBE
                 &kp Z
             >;
         };
