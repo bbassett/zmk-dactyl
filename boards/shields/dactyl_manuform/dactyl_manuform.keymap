@@ -22,25 +22,36 @@
     };
 
 
+    combos {
+        compatible = "zmk,combos";
+        combo_f4 {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+            key-positions = <34 41>;
+            bindings = <&kp F4>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             // Layer 0: Base QWERTY
             // -----------------------------------------
-            // Q       W       E       R       T             Y       U       I       O       P
-            // A/L1    S/L2    D       F/L3    G             H       J       K       L       RET/L1
-            // Z/LSft  X       C       V       B             N       M       ,       .       //RSft
+            // Q       W       E       R       T             Y       U/GUI   I/Ctl   O/Alt   P
+            // A/L1    S/L2    D/L3    F/L4    G             H       J       K       L       RET/L1
+            // Z/LSft  X       C       V       B             N       M       ,       .       FSLH/RSft
             //         LEFT    RIGHT                                         ;       '
-            //                 Ctl/Esc GUI     ALT     -     UP      -       Bspc/L4 SPC
-            //                                 -       -     DOWN    -
+            //                 Esc/GUI Ctl     Alt     -     -       UP      Bspc    SPC
+            //                                 F4      tog5  tog5    DOWN
             bindings = <
-                &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U  &kp I      &kp O    &lt 4 P
-                &lt 1 A       &lt 2 S  &kp D    &lt 3 F  &kp G                            &kp H    &kp J  &kp K      &kp L    &lt 1 RET
-                &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M  &kp COMMA  &kp DOT  &mt RSHIFT FSLH
-                              &kp LEFT &kp RIGHT                                                          &kp SEMI   &kp APOS
-                              &mt LCTRL ESC &kp LGUI &kp LALT  &kp N0        &kp UP    &kp F4  &kp BSPC   &kp SPC
-                                                     &kp N0    &kp N0        &kp DOWN  &kp N0
+                &kp Q         &kp W    &kp E    &kp R    &kp T                            &kp Y    &mt LGUI U   &mt LCTRL I  &mt LALT O  &kp P
+                &lt 1 A       &lt 2 S  &lt 3 D  &lt 4 F  &kp G                            &kp H    &kp J        &kp K        &kp L       &lt 1 RET
+                &mt LSHIFT Z  &kp X    &kp C    &kp V    &kp B                            &kp N    &kp M        &kp COMMA    &kp DOT     &mt RSHIFT FSLH
+                              &kp LEFT &kp RIGHT                                                                &kp SEMI     &kp APOS
+                              &mt LGUI ESC &kp LCTRL &kp LALT  &kp N0               &kp N0    &kp UP  &kp BSPC     &kp SPC
+                                                     &kp F4    &tog 5               &tog 5  &kp DOWN
             >;
         };
 
@@ -82,19 +93,38 @@
             >;
         };
 
+        smy2_layer {
+            // Layer 3: Symbols and Window Management (hold D)
+            // -----------------------------------------
+            // ~       `       _       _       _             A-G-1   A-G-2   A-G-3   A-G-4   A-G-5
+            // S-Tab   Tab     _       _       _             A-S-F   A-S-A   A-G-6   A-S-D   _
+            // _       _       _       _       _             _       _       A-S-X   _       _
+            //         _       _                                             _       _
+            //                 _       _       _       _     _       _       _       _
+            //                                 _       _     _       _
+            bindings = <
+                &kp LS(GRAVE)  &kp GRAVE  &trans  &trans  &trans                  &kp LALT(LGUI(1))    &kp LALT(LGUI(2))    &kp LALT(LGUI(3)) &kp LALT(LGUI(4))    &kp LALT(LGUI(5))
+                &kp LS(TAB)    &kp TAB  &trans  &trans  &trans                    &kp LALT(LSHIFT(F))  &kp LALT(LSHIFT(A))  &kp LALT(LGUI(6)) &kp LALT(LSHIFT(D))  &trans
+                &trans  &trans  &trans  &trans  &trans                              &trans    &trans    &kp LALT(LSHIFT(X))    &trans    &trans
+                        &trans  &trans                                                        &trans    &trans
+                                &trans  &trans  &trans &trans     &trans  &trans    &trans    &trans
+                                                &trans &trans     &trans  &trans
+            >;
+        };
+
 
         sym1_layer {
-            // Layer 3: Window Switching (hold F)
+            // Layer 4: Tab/Grave (hold F)
             // -----------------------------------------
-            // G-S-`   G-`     _       _       _             _       _       _       _       _
-            // G-S-Tab G-Tab   _       _       _             _       _       _       _       _
+            // ~       `       _       _       _             _       _       _       _       _
+            // S-Tab   Tab     _       _       _             _       _       _       _       _
             // _       _       _       _       _             _       _       _       _       _
             //         _       _                                             _       _
             //                 _       _       _       _     _       _       _       _
             //                                 _       _     _       _
             bindings = <
                 &kp LS(GRAVE)  &kp GRAVE  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
-                &kp LS(TAB)  &kp TAB  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
+                &kp LS(TAB)    &kp TAB  &trans  &trans  &trans                    &trans    &trans   &trans    &trans    &trans
                 &trans  &trans  &trans  &trans  &trans                              &trans    &trans    &trans    &trans    &trans
                         &trans  &trans                                                        &trans    &trans
                                 &trans  &trans  &trans &trans     &trans  &trans    &trans    &trans
@@ -103,7 +133,7 @@
         };
 
         mouse_layer {
-            // Layer 4: Mouse (normal speed)
+            // Layer 5: Mouse (normal speed)
             // -----------------------------------------
             // _       _       UP      _       _             _       _       _       _       _
             // _       LEFT    DOWN    RIGHT   _             _       FAST    _       SLOW    _
@@ -113,16 +143,16 @@
             //                                 _       _     _       _
             bindings = <
                 &trans  &trans          &mmv MOVE_UP    &trans           &trans                              &trans  &trans  &trans  &trans  &trans
-                &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                              &trans  &mo 5   &trans  &mo 6   &trans
+                &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                              &trans  &mo 6   &trans  &mo 7   &trans
                 &trans  &trans          &trans          &trans           &trans                              &trans  &trans  &trans  &trans  &trans
                         &trans          &trans                                                                       &trans  &trans
                                         &trans          &trans  &trans &trans     &trans  &trans    &mkp LCLK  &mkp RCLK
-                                                                &trans &trans     &trans  &trans
+                                                               &trans &trans     &trans  &trans
             >;
         };
 
         mouse_fast_layer {
-            // Layer 5: Mouse (fast speed, activated by J on layer 4)
+            // Layer 6: Mouse (fast speed, activated by J on mouse layer)
             // -----------------------------------------
             // _       _       UP      _       _             _       _       _       _       _
             // _       LEFT    DOWN    RIGHT   _             _       _       _       _       _
@@ -141,7 +171,7 @@
         };
 
         mouse_slow_layer {
-            // Layer 6: Mouse (slow speed, activated by L on layer 4)
+            // Layer 7: Mouse (slow speed, activated by L on mouse layer)
             // -----------------------------------------
             // _       _       UP      _       _             _       _       _       _       _
             // _       LEFT    DOWN    RIGHT   _             _       _       _       _       _
