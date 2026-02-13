@@ -103,9 +103,9 @@
             //                 _       _       _       _     _       _       _       _
             //                                 _       _     _       _
             bindings = <
-                &kp LS(GRAVE)  &kp GRAVE  &trans  &trans  &trans                  &kp LALT(LGUI(1))    &kp LALT(LGUI(2))    &kp LALT(LGUI(3)) &kp LALT(LGUI(4))    &kp LALT(LGUI(5))
-                &kp LS(TAB)    &kp TAB  &trans  &trans  &trans                    &kp LALT(LSHIFT(F))  &kp LALT(LSHIFT(A))  &kp LALT(LGUI(6)) &kp LALT(LSHIFT(D))  &trans
-                &trans  &trans  &trans  &trans  &trans                              &trans    &trans    &kp LALT(LSHIFT(X))    &trans    &trans
+                &kp LS(GRAVE)  &kp GRAVE  &trans  &trans  &trans                  &kp LA(LG(N1))    &kp LA(LG(N2))    &kp LA(LG(N3))    &kp LA(LG(N4))    &kp LA(LG(N5))
+                &kp LS(TAB)    &kp TAB  &trans  &trans  &trans                    &kp LA(LS(F))     &kp LA(LS(A))     &kp LA(LG(N6))    &kp LA(LS(D))     &trans
+                &trans  &trans  &trans  &trans  &trans                              &trans            &trans            &kp LA(LS(X))     &trans            &trans
                         &trans  &trans                                                        &trans    &trans
                                 &trans  &trans  &trans &trans     &trans  &trans    &trans    &trans
                                                 &trans &trans     &trans  &trans
